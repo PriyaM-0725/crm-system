@@ -36,21 +36,21 @@ export default function InteractionsPage() {
   };
 
   return (
-    <div className="p-6 bg-blue-50 min-h-screen">
+    <div className="p-6 min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
 
       {/* HEADER */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-blue-700">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold text-blue-800">
           Interactions
         </h1>
-        <span className="text-blue-600 font-medium">
-          Total: {interactions.length}
-        </span>
+        <p className="text-sm text-gray-600 mt-1">
+          Track all your communication history
+        </p>
       </div>
 
       {/* FORM */}
-      <div className="bg-white border border-blue-100 p-5 rounded-xl shadow mb-6">
-        <h2 className="text-xl font-semibold text-blue-700 mb-4">
+      <div className="bg-white border border-blue-100 p-5 rounded-2xl shadow-sm mb-6">
+        <h2 className="text-lg font-semibold text-blue-700 mb-4">
           Add Interaction
         </h2>
 
@@ -60,7 +60,7 @@ export default function InteractionsPage() {
             name="type"
             value={form.type}
             onChange={handleChange}
-            className="border border-blue-300 bg-white text-black p-2 rounded focus:ring-2 focus:ring-blue-500"
+            className="border border-blue-200 bg-white text-black p-2 rounded-lg focus:ring-2 focus:ring-blue-400"
           >
             <option>Call</option>
             <option>Email</option>
@@ -72,7 +72,7 @@ export default function InteractionsPage() {
             name="date"
             value={form.date}
             onChange={handleChange}
-            className="border border-blue-300 bg-white text-black p-2 rounded focus:ring-2 focus:ring-blue-500"
+            className="border border-blue-200 bg-white text-black p-2 rounded-lg focus:ring-2 focus:ring-blue-400"
           />
 
           <textarea
@@ -80,21 +80,21 @@ export default function InteractionsPage() {
             value={form.note}
             onChange={handleChange}
             placeholder="Enter interaction notes..."
-            className="border border-blue-300 bg-white text-black p-2 rounded col-span-2 focus:ring-2 focus:ring-blue-500"
+            className="border border-blue-200 bg-white text-black p-2 rounded-lg col-span-2 focus:ring-2 focus:ring-blue-400"
           />
 
         </div>
 
         <button
           onClick={addInteraction}
-          className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded"
+          className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-sm transition"
         >
           Add Interaction
         </button>
       </div>
 
       {/* LIST */}
-      <div className="bg-white border border-blue-100 rounded-xl shadow p-4">
+      <div className="bg-white border border-blue-100 rounded-2xl shadow-sm p-4">
 
         {interactions.length === 0 ? (
           <p className="text-center text-blue-400">
@@ -104,19 +104,19 @@ export default function InteractionsPage() {
           interactions.map((item) => (
             <div
               key={item.id}
-              className="border border-blue-200 p-4 mb-3 rounded hover:bg-blue-50 transition"
+              className="border border-blue-100 p-4 mb-3 rounded-xl hover:shadow-md hover:bg-blue-50 transition"
             >
-              <div className="flex justify-between mb-2">
-                <span className="font-semibold text-black">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-semibold text-blue-700">
                   {item.type}
                 </span>
 
-                <span className="text-sm text-gray-500">
+                <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">
                   {item.date || "No date"}
                 </span>
               </div>
 
-              <p className="text-gray-700 mb-2">
+              <p className="text-gray-700 mb-3 text-sm">
                 {item.note}
               </p>
 
